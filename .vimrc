@@ -40,9 +40,6 @@ filetype plugin indent on    " required
 
 " Enable powerline in Vim and set theme to solarized
 syntax enable
-set background=dark
-colorscheme solarized
-
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Always show statusline
