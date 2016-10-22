@@ -43,3 +43,9 @@ git clone https://github.com/powerline/fonts.git
 
 cd fonts
 sh install.sh
+
+# Install Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+# Copy .vimrc to ~/.vimrc
+cp .vimrc ~/.vimrc
