@@ -1,3 +1,4 @@
+set shell=sh
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -14,6 +15,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -46,3 +49,19 @@ set laststatus=2
 
 set t_Co=256
 
+let NERDTreeShowHidden=1
+
+set rnu
+set ruler
+set tabstop=2
+set number
+map ; :
+map j gj
+map k gk
+set colorcolumn=80
+
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '~~' 
+let g:gitgutter_sign_removed = '--' 
+let g:gitgutter_sign_removed_first_line = '^^' 
+let g:gitgutter_sign_modified_removed = 'ww' 
