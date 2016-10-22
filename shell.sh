@@ -29,9 +29,6 @@ fish_path=`which fish`
 echo $fish_path >> /etc/shells
 chsh -s $fish_path 
 
-# Install oh-my-fish
-curl -L http://get.oh-my.fish | fish
-
 # Get powerline fonts for agnoster
 # Remember to go into your terminal emulator to set the font to a powerline
 # compatible font!
@@ -49,3 +46,6 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Copy .vimrc to ~/.vimrc
 cp .vimrc ~/.vimrc
+
+cp config.fish ~/.config/fish/config.fish
+
