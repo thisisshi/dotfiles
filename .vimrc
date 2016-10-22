@@ -18,6 +18,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Valloric/YouCompleteMe'
 
+" Start NERDTree on Vim start and focus on edit pane
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -35,7 +39,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 " Enable powerline in Vim and set theme to solarized
-
 syntax enable
 set background=dark
 colorscheme solarized
@@ -46,20 +49,24 @@ set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 set laststatus=2
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colors
-
 set t_Co=256
 
-let NERDTreeShowHidden=1
-
+" Vim prefs
 set rnu
 set ruler
 set tabstop=2
 set number
+set colorcolumn=80
+
+" Mappings
 map ; :
 map j gj
 map k gk
-set colorcolumn=80
 
+" NERDTree prefs
+let NERDTreeShowHidden=1
+
+" GitGutter prefs
 let g:gitgutter_sign_added = '++'
 let g:gitgutter_sign_modified = '~~' 
 let g:gitgutter_sign_removed = '--' 
