@@ -45,6 +45,8 @@ sh install.sh
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # Copy .vimrc to ~/.vimrc
+#
+# Copy config.fish to ~/.config/fish/config.fish
 cp .vimrc ~/.vimrc
 
 cp config.fish ~/.config/fish/config.fish
