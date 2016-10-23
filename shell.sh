@@ -49,3 +49,5 @@ cp .vimrc ~/.vimrc
 
 cp config.fish ~/.config/fish/config.fish
 
+# Install colorful cat
+pip install pygmentize

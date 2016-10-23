@@ -14,4 +14,5 @@ function ls --description "better ls"
 end
 
 alias brewup="brew update; brew cask update; brew upgrade --all; brew cleanup; brew cask cleanup"
+alias ccat="pygmentize -g"
 
