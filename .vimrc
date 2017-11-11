@@ -15,7 +15,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'flazz/vim-colorschemes'
 
 " Start NERDTree on Vim start and focus on edit pane
 autocmd VimEnter * NERDTree
@@ -39,6 +39,8 @@ filetype plugin indent on    " required
 
 " Enable powerline in Vim and set theme to solarized
 syntax enable
+colorscheme 1989
+
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
 " Always show statusline
@@ -48,9 +50,16 @@ set laststatus=2
 set t_Co=256
 
 " Vim prefs
+set hlsearch
 set rnu
 set ruler
+filetype plugin indent on
+" show existing tab with 4 spaces width
 set tabstop=2
+" when indenting with '>', use 4 spaces width
+set shiftwidth=2
+" On pressing tab, insert 4 spaces
+set expandtab
 set number
 set colorcolumn=80
 
@@ -64,7 +73,15 @@ let NERDTreeShowHidden=1
 
 " GitGutter prefs
 let g:gitgutter_sign_added = '++'
-let g:gitgutter_sign_modified = '~~' 
-let g:gitgutter_sign_removed = '--' 
-let g:gitgutter_sign_removed_first_line = '^^' 
-let g:gitgutter_sign_modified_removed = 'ww' 
+let g:gitgutter_sign_modified = '~~'
+let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_removed_first_line = '^^'
+let g:gitgutter_sign_modified_removed = 'ww'
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
