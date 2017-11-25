@@ -1,0 +1,384 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Hide tab borders */
+:root {
+    --tabs-border: transparent !important;
+}
+
+/* Hide separators between background tabs */
+.tabbrowser-tab::before {
+    color: purple !important; 
+    opacity: 0 !important; 
+}
+
+/* Hide border from rightmost background tab */
+.tabbrowser-tab::after {
+    color: #fff !important; 
+    opacity: 0 !important; 
+  }
+
+/* Remove placeholder right border */
+.titlebar-placeholder {
+    border: none !important;
+}
+
+/* Url bar dropdown list */
+#PopupAutoCompleteRichResult{
+    margin-top: -3px !important;
+}
+
+#PopupAutoCompleteRichResult > richlistbox {
+    -moz-box-orient: horizontal;
+    overflow: hidden;
+    background-color: #0c0c0d !important;
+}
+
+.ac-url-text, .ac-action-text {
+    color: #e6e6e6 !important;
+}
+
+#PopupAutoCompleteRichResult > richlistbox > richlistitem > hbox > description > description:not(.ac-url-text) {
+    color: #fff !important;
+}
+
+#PopupAutoCompleteRichResult > richlistbox > richlistitem[selected] {
+        background-color: #0a335c !important;
+}
+
+/* Page loading throbber on tabs */
+.tab-throbber::before {
+    fill: #33ff66 !important;
+    opacity: 1 !important;
+}
+
+/* Change color of selected tab text */
+#TabsToolbar .tabbrowser-tab[selected] {
+    color: #fff !important;
+}
+
+/* Change Color of all tabs */  
+.tab-background {
+    background-attachment: none !important;
+    background-color: #0c0c0d !important;
+    background-image: none!important;
+}
+
+/* Reduce width of pinned tabs by reducing the left and right padding */
+ #TabsToolbar .tab-content[pinned] {
+    padding:    0 9px !important;
+}
+
+/* Move tabs over to right to make room for address bar */
+ #TabsToolbar {
+    margin:         0 0 0 45vw !important;
+    height:         31px !important;
+    padding-left:   -5px !important;
+    background: #0c0c0d !important;
+}
+
+/* Move address bar to titlebar with tabs */
+ #nav-bar {
+    margin:         -30px 55vw -1px 69px !important;
+    height:         31px !important;
+    border-bottom:  none !important;
+    background: #0c0c0d !important;
+}
+
+/* URL bar width adjustments */
+#urlbar-container {
+    border:         none !important;
+    width: 100px !important;
+}
+
+#urlbar {
+    background:     none !important;
+    border:         none !important;
+    margin-left:    -2px !important;
+    min-width:      40px !important;
+    max-width:      9950px !important;
+    font-size:      12px !important;
+    height:         44px !important;
+    box-shadow:     none !important;
+    color: #a9a9a9 !important; 
+}
+
+#urlbar:hover {
+    border:         none !important;
+    box-shadow:     none !important;
+}
+
+#urlbar[focused="true"] {
+
+    border:         none !important;
+}
+
+/* Hide bookmark folder icons */
+.bookmark-item > .toolbarbutton-icon {
+    display:    none !important;
+}
+
+/* Increase bookmarks toolbar height */
+ #PersonalToolbar {
+    margin-top: 2px !important;
+    height:     28px !important;
+    border-top: 1px solid #9E9E9E !important;
+}
+
+/* Minor bookmarks toolbar spacing adjustments */
+ #personal-bookmarks toolbarbutton.bookmark-item, #personal-bookmarks toolbarbutton {
+    box-shadow:      none !important;
+    margin:          -1px 0px -1px 2px !important;
+    padding:         0px 5px !important;
+    -moz-appearance: none !important; }
+
+#personal-bookmarks toolbarbutton:hover {
+    -moz-appearance: none !important;
+    text-shadow:     none !important;
+    color:           #000 !important;   }
+
+/* Remove line under address bar */
+ #navigator-toolbox::after{
+    content:    none;
+}
+
+/* Affix hamburger menu to top right */
+#PanelUI-button{
+    position:   fixed;
+    top:        1px;
+    right:      4px;
+}
+
+#new-tab-button{
+    position:   fixed;
+    margin:    3px 0px 0px 0px !important;
+    padding-right: -3px;
+}
+
+/* Hide titlebar placeholder for caption buttons so that padding between tabs and address bar isn't as large */
+.titlebar-placeholder[type="caption-buttons"] {
+    -moz-box-ordinal-group: 1 !important;
+    display:    none !important;
+    padding-left: -50px;
+}
+
+/* Findbar customization */
+@keyframes scale-in {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes scale-out {
+    0% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+.browserContainer {
+    position: relative;
+    background-color: #363636 !important;
+}
+
+findbar {
+    animation: 0.2s scale-in;
+    transform-origin: top center;
+    background-color: #0c0c0d !important;
+    padding: 6px 6px 6px 6px;
+    border-color: #0c0c0d !important;
+    border: 0 0 0 0 !important;
+    position: absolute;
+    top: -2px;
+    right: 38px; 
+}
+
+findbar[hidden="true"] {
+    animation: 0.2s scale-out;
+}
+
+findbar .findbar-container {
+    padding: 0 !important;
+    padding-inline-start: 0 !important;
+    padding-inline-end: 0 !important;
+}
+
+findbar .findbar-container .findbar-textbox {
+    padding: 6px 8px !important;
+    background: #00b300 !important;
+    border: 0px !important;
+    box-shadow:     none !important;
+    color: #ffffff !important;
+}
+
+findbar .findbar-container .findbar-find-previous,
+findbar .findbar-container .findbar-find-next {
+    background: #00b300 !important;
+    background-color: #00b300 !important;
+    border-color: #00b300 !important;
+}
+
+findbar .findbar-container .findbar-find-previous:hover, findbar .findbar-container .findbar-find-previous:focus,
+findbar .findbar-container .findbar-find-next:hover,
+findbar .findbar-container .findbar-find-next:focus {
+    background-color: #00b300 !important;
+}
+
+findbar .findbar-button {
+    color: #ffffff;
+    border: 1px solid var(--backbutton-border-color);
+    border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+findbar .findbar-closebutton {
+    margin-right: 4px !important;
+    padding-inline-end: 0 !important;
+    position: relative;
+    top: 6px;
+}
+
+/*Darken panels*/
+.panel-arrow { 
+    filter: invert(99%);
+    opacity: .5;
+}
+
+.subviewbutton:hover,.toolbarbutton-1:hover,#appMenu-zoomReset-button:hover {
+    color:#33ff66 !important;
+    background-color: transparent !important;
+}
+
+.panel-subview-body,#appMenu-zoomReset-button {
+    color: #a9a9a9 !important;
+    background: #0c0c0d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+.panel-subview-footer,[class^="PanelUI-"] {
+    color: #a9a9a9 !important;
+    background: #0c0c0d !important; !important;
+}
+
+/*stops possible clashes with extension popups*/
+ .webextension-popup-browser {
+    background: #fff;
+}
+
+/*  Right click menu */
+menupopup, popup,
+popup > menu > menupopup,
+menupopup > menu > menupopup {
+    -moz-appearance: none !important;
+    background: #0c0c0d !important;
+    border-radius: 3px !important;
+    padding: 2px 0px 2px 0px  !important;
+    box-shadow: none !important;
+}
+
+menupopup menuseparator {
+    -moz-appearance: none !important;
+    border-bottom: 2px solid #282828;
+    margin: 3px 0px 5px 0px !important;
+    padding: 0px !important;
+}
+
+menupopup menu, menuitem{
+    -moz-appearance: none !important;
+    color: #a9a9a9!important;
+}
+
+menupopup menu:hover, menuitem:hover {
+    -moz-appearance: none !important;
+    color:#33ff66 !important;
+    background-color: transparent !important;
+}
+/*
+ * Originally from:
+ * http://forums.mozillazine.org/viewtopic.php?p=14404121#p14404121
+ */
+
+#urlbar {
+  position: relative;
+  z-index: 1;
+}
+
+#identity-box:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: white;
+  opacity: 0.2;
+}
+
+
+/* There is also grantedPermissions, but irrelevant. */
+
+/* about:about */
+#urlbar[pageproxystate='valid'] #identity-box.unknownIdentity:after {
+  background: #ff0039; /* Firefox Red 50 */
+}
+
+/* about:config */
+#urlbar[pageproxystate='valid'] #identity-box.chromeUI:after {
+  background: #0a84ff; /* Firefox Blue 50 */
+}
+
+/* uBlock Origin Dashboard */
+#urlbar[pageproxystate='valid'] #identity-box.extensionPage:after {
+  background: #45a1ff; /* Firefox Blue 40 */
+}
+
+/* https://www.github.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.verifiedIdentity:after{
+  background: #058b00; /* Firefox Green 70 */
+}
+
+/* https://www.google.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.verifiedDomain:after{
+  background: #12bc00; /* Firefox Green 60 */
+}
+
+/* https://mixed-script.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedActiveBlocked:after {
+  background: #30e60b; /* Firefox Green 50 */
+}
+
+/* https://mixed.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContent:after {
+  background: #d7b600; /* Firefox Yellow 60 */
+}
+
+/* https://very.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContentLoadedActiveBlocked:after {
+  background: #d7b600; /* Firefox Yellow 60 */
+}
+
+/* https://self-signed.badssl.com/ but add certificate exception */
+#urlbar[pageproxystate='valid'] #identity-box.certUserOverridden:after {
+  background: #ffe900; /* Firefox Yellow 50 */
+}
+
+/* Don't know an example for this */
+#urlbar[pageproxystate='valid'] #identity-box.weakCipher:after {
+  background: #a47f00; /* Firefox Yellow 70 */
+}
+
+/* https://mixed-script.badssl.com/ but disable protection */
+#urlbar[pageproxystate='valid'] #identity-box.mixedActiveContent:after {
+  background: #d70022;  /* Firefox Red 60 */
+}
+
+/* http://http-login.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.insecureLoginForms:after {
+  background: #a4000f;  /* Firefox Red 70 */
+}
