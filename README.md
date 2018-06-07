@@ -1,16 +1,16 @@
 # dotfiles
 
+## GNU/Linux
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-linux.png)
+
+- Window Manager: [i3wm](http://i3wm.org/)
+- Status Bar: [i3status](https://i3wm.org/i3status/)
+- Lock Screen: [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen)
+
 ## Vim
 ![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-vim.png)
 
 Vundle for plugin management
-
-## GNU/Linux
-![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-linux.png)
-
-Window Manager: [i3wm](http://i3wm.org/)
-Status Bar: [i3status](https://i3wm.org/i3status/)
-Lock Screen: [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen)
 
 ## Windows
 
