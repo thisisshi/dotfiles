@@ -1,4 +1,5 @@
 # dotfiles
+various dotfiles for mac, gnu/linux, and windows
 
 ## GNU/Linux
 ![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-linux.png)
