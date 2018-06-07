@@ -1,12 +1,12 @@
 # dotfiles
 
 ## Vim
-![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-vim.png)
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-vim.png)
 
 Vundle for plugin management
 
 ## GNU/Linux
-![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-linux.png)
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-linux.png)
 
 Window Manager: [i3wm](http://i3wm.org/)
 Status Bar: [i3status](https://i3wm.org/i3status/)
@@ -14,7 +14,7 @@ Lock Screen: [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen)
 
 ## Windows
 
-![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-win.png)
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-win.png)
 
 ## On the screen
 - [Wox](http://www.getwox.com/): Spotlight-esque search with plugins (weather, google search, calculator, task switcher) Activates with Alt+Space (or any other key combo)
