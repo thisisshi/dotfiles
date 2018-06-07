@@ -1,4 +1,18 @@
-![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch.png)
+## Vim
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-vim.png)
+
+Vundle for plugin management
+
+## GNU/Linux
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-linux.png)
+
+Window Manager: [i3wm](http://i3wm.org/)
+Status Bar: [i3status](https://i3wm.org/i3status/)
+Lock Screen: [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen)
+
+## Windows
+
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-windows.png)
 
 ## On the screen
 - [Wox](http://www.getwox.com/): Spotlight-esque search with plugins (weather, google search, calculator, task switcher) Activates with Alt+Space (or any other key combo)
@@ -11,11 +25,3 @@
 - Vim, self explanatory
 - [`KittyKatt/screenfetch`](https://github.com/KittyKatt/screenFetch): Fetches pertinent information about your system and displays it
 - [`stark/color-scripts`](https://github.com/stark/color-scripts): Colors and stuff
-
-## Contents
-- `.inputrc`
-- `.vimrc`
-- `.tmux.conf`
-- `config.fish`
-- `init.fish`
-- `shell.sh`
