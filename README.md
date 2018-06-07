@@ -14,7 +14,7 @@ Lock Screen: [betterlockscreen](https://github.com/pavanjadhaw/betterlockscreen)
 
 ## Windows
 
-![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-windows.png)
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenfetch-win.png)
 
 ## On the screen
 - [Wox](http://www.getwox.com/): Spotlight-esque search with plugins (weather, google search, calculator, task switcher) Activates with Alt+Space (or any other key combo)
