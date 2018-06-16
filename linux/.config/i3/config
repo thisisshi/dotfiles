@@ -45,10 +45,10 @@ bindsym Mod1+g exec ~/.config/scripts/dmenu_search.sh
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -57,10 +57,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -69,7 +69,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+# bindsym $mod+h split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -78,9 +78,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+ctrl+s layout stacking
+bindsym $mod+ctrl+w layout tabbed
+bindsym $mod+ctrl+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -101,29 +101,42 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 1:work
+set $ws2 2:browse
+set $ws3 3:chat
+set $ws4 4:music
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -158,11 +171,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
+# set workspaces to specific workloads
+assign [class="Firefox"] $ws2
+assign [class="Slack"] $ws3
+assign [class="Gitter"] $ws3
+assign [class="discord"] $ws3
+# For some reason spotify doesn't like to be assigned to a specific workspace
+# using assign, pulled this from: goo.gl/YLvnTk
+for_window [class="Spotify"] move to workspace $ws4
+for_window [class="^"] focus
 
 # Switches to the next workspace. This is used with fusuma (four finger swipe left/right
 # to move across workspaces
@@ -186,30 +203,68 @@ new_window 1pixel
 
 #remap ctrl to caps
 exec setxkbmap -option ctrl:nocaps
+
 # gestures
 exec fusuma
 
+# set color variables
+# optional theme colorscheme
+set $grey                #191919
+set $valencia            #e64a19
+set $magenta             #a673a6
+set $blue                #7182A8
+set $cyan                #6da3a1
+set $black               #000000
+set $white               #b7bbbd
+set $yellow              #27c282
+set $red                 #aa0e50
+set $green               #1dcc9f
+
+# theme colors
+set $bg-color 	         #212121
+set $inactive-bg-color   #212121
+set $text-color          #ffffff
+set $inactive-text-color #212121
+set $urgent-bg-color     #e64a19
+
+# set window colors
+# class                 border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $white               $bg-color
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $bg-color
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $bg-color
+client.background $bg-color
+
 bar {
-      position top
-      status_command i3status
-      colors {
-      background #002b36
-      statusline #839496
-      separator  #586e75
-      focused_workspace  #b58900 #b58900 #002b36
-      active_workspace   #586e75 #586e75 #002b36
-      inactive_workspace #073642 #002b36 #839496
-      urgent_workspace   #dc322f #dc322f #fdf6e3
-        }
+  strip_workspace_numbers yes
+  position top
+  status_command i3status
+  height 19
+  colors {
+    # whole color settings
+    background   $grey
+    statusline   $white
+    separator    #f44274
+
+    # type              border      backgr.     font
+    focused_workspace   $grey       #f44274     $black
+    active_workspace    $grey       #f44274     $black
+    inactive_workspace  $grey       $grey      $white
+    urgent_workspace    $valencia   $valencia   $grey
+  }
 }
 
-
-client.focused          #002b36 #586e75 #fdf6e3 #268bd2
-client.focused_inactive #002b36 #073642 #839496 #073642
-client.unfocused        #002b36 #073642 #839496 #073642
-client.urgent #002b36 #dc322f #fdf6e3 #002b36
-
+# i3-gaps
 gaps inner 10
-gaps outer 10
+gaps outer 5
 
+bindsym $mod+s gaps inner current plus 5
+bindsym $mod+Shift+s gaps inner current minus 5
+
+# executes the last feh command which will set the wallpaper on startup
 exec sh ~/.fehbg
+# compton destroys battery life with _nice_ blur effects, run if idgaf
+exec compton --config ~/.config/compton/compton.conf --backend glx
+
+#Picture in Picture
+bindsym $mod+c exec "i3-msg 'floating toggle; sticky toggle; resize shrink width 10000px; resize grow width 400px; resize shrink height 10000px; resize grow height 250px;move position 1650 px 1100px;'"
