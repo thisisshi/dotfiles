@@ -1,0 +1,2 @@
+PKGEXT=.pkg.tar
+TMPDIR="/home/$USER/tmp"

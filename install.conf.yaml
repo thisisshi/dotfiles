@@ -40,6 +40,16 @@
       path: linux/.config/rofi
     ~/.config/compton.conf:
       path: linux/.config/compton/compton.conf
+    ~/.yaourtrc:
+      relink: true
+      path: linux/.yaourtrc
+    ~/.Xresources:
+      relink: true
+      path: linux/.Xresources
+    ~/.vbam:
+      create: true
+      path: linux/.config/.vbam
+
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
