@@ -1,0 +1,48 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.config/alacritty:
+      create: true
+      path: linux/.config/alacritty
+    ~/.config/fish:
+      create: true
+      path: linux/.config/fish
+    ~/.config/compton:
+      create: true
+      path: linux/.config/compton
+    ~/.tmux.conf:
+      relink: true
+      path: common/.tmux.conf
+    ~/.vimrc:
+      relink: true
+      path: common/.vimrc
+    ~/.i3:
+      create: true
+      path: linux/.config/i3
+    ~/.config/i3status:
+      create: true
+      path: linux/.config/i3status
+    ~/.config/neofetch:
+      create: true
+      path: linux/.config/neofetch
+    ~/.config/polybar:
+      create: true
+      path: linux/.config/polybar
+    ~/.config/rasi:
+      create: true
+      path: linux/.config/rasi
+    ~/.config/rofi:
+      create: true
+      path: linux/.config/rofi
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - mkdir dev
+    # enable sound for huawei matebook x
+  - sudo ln -s ~/dev/dotfiles/linux/huawei-matebook-x/huawei-sound /usr/local/bin/huawei-sound
+  - sudo ln -s ~/dev/dotfiles/linux/huawei-matebook-x/huawei-sound.service /etc/systemd/system/huawei-sound.service
+  - sudo systemctl enable huawei-sound
