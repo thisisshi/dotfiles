@@ -1,6 +1,9 @@
 # dotfiles
 various dotfiles for mac, gnu/linux, and windows
 
+## Current Manjaro Rice
+![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-manjaro.png)
+
 ## GNU/Linux
 ![screenfetch](https://raw.githubusercontent.com/thisisshi/dotfiles/master/screenshot-linux.png)
 
