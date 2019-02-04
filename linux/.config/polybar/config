@@ -1,0 +1,311 @@
+[settings]
+throttle-ms = 50
+throttle-limit = 5
+
+[bar/top]
+monitor = eDP-1
+width = 100%
+height = 20
+offset-y = 5
+
+font-0 = Hack Nerd Font:size=10:weight=bold;0
+font-1 = Hack Nerd Font:size=10:weight=bold;0
+font-2 = Hack Nerd Font:size=10:weight=bold;0
+font-3 = Hack Nerd Font:size=10:weight=bold;0
+font-4 = Hack Nerd Font:size=10:weight=bold;0
+
+background = #005f627a
+foreground = #f2f2f2
+
+overline-size = 2
+overline-color = #bc92f8
+underline-size = 2
+underline-color = #bc92f8
+
+spacing = 0.5
+padding-right = 1
+module-margin-left = 0
+module-margin-right = 1
+
+modules-left = i3
+modules-center = title
+modules-right = battery network volume cpu memory clock
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+
+[module/i3]
+type = internal/i3
+
+format = <label-state> <label-mode>
+format-spacing = 0
+
+label-focused = %name%
+label-focused-padding = 2
+label-focused-margin = 1
+label-focused-font = 3
+label-focused-foreground = #fff
+label-focused-background = #2fbbf2
+label-focused-overline = #148ebe
+label-focused-underline = #148ebe
+
+label-unfocused = %name%
+label-unfocused-padding = 2
+label-unfocused-margin = 1
+label-unfocused-background = #eeeeee
+label-unfocused-foreground = #dd222222
+label-unfocused-overline = #c5c5c5
+label-unfocused-underline = #c5c5c5
+label-unfocused-font = 3
+
+label-urgent = %name%
+label-urgent-padding = 2
+label-urgent-margin = 1
+label-urgent-font = 3
+
+label-visible = %name%
+label-visible-padding = 2
+label-visible-margin = 1
+label-visible-font = 3
+
+strip-wsnumbers = true
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = <label> <ramp-coreload>
+format-background = #66cc99
+format-foreground = #2a5c45
+format-underline = #60eaa5
+format-overline = #60eaa5
+format-padding = 2
+
+label = CPU 
+label-font = 3
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 5
+ramp-coreload-0-foreground = #000000
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 5
+ramp-coreload-1-foreground = #000000
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 5
+ramp-coreload-2-foreground = #000000
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 5
+ramp-coreload-3-foreground = #000000
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 5
+ramp-coreload-4-foreground = #ffffff
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 5
+ramp-coreload-5-foreground = #ffffff
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 5
+ramp-coreload-6-foreground = #ff3b51
+ramp-coreload-7 = █
+ramp-coreload-7-font = 5
+ramp-coreload-7-foreground = #ff3b51
+
+[module/memory]
+type = internal/memory
+
+format = <label> <bar-used>
+format-padding = 2
+format-background = #cb66cc
+format-foreground = #ffe3ff
+format-underline = #e58de6
+format-overline = #e58de6
+
+label = MEM
+label-font = 3
+
+bar-used-width = 10
+bar-used-indicator = |
+bar-used-indicator-font = 4
+bar-used-indicator-foreground = #ffaaf5
+bar-used-fill = ─
+bar-used-fill-font = 4
+bar-used-fill-foreground = #ffaaf5
+bar-used-empty = ─
+bar-used-empty-font = 4
+bar-used-empty-foreground = #934e94
+
+[module/clock]
+type = internal/date
+date = %%{T3}%Y-%m-%d %I:%M%%{T-} %p
+
+format-padding = 2
+format-background = #ff4279
+format-foreground = #ffcddc
+format-underline = #ff63a5
+format-overline = #ff63a5
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume-padding = 2
+format-volume-background = #fff85a
+format-volume-foreground = #43433a
+format-volume-underline = #fffb8f
+format-volume-overline = #fffb8f
+
+format-muted-padding = 2
+format-muted-background = #77ffffff
+format-muted-foreground = #666666
+
+label-volume = VOL %percentage%
+label-volume-font = 3
+label-muted = sound muted
+label-muted-font = 3
+
+[module/xwindow]
+type = internal/xwindow
+label-font = 3
+
+[module/battery]
+label = battery
+type = internal/battery
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+poll-internval = 5
+
+time-format = %H:%M
+
+format-full-prefix = " "
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+
+format-charging-padding = 2
+format-charging-background = #282a36
+format-charging-foreground = #f8f8f2
+format-charging-underline = #44475a
+format-charging-overline = #44475a
+
+format-discharging-padding = 2
+format-discharging-background = #282a36
+format-discharging-foreground = #f8f8f2
+format-discharging-underline = #44475a
+format-discharging-overline = #44475a
+
+format-full-padding = 2
+format-full-background = #282a36
+format-full-foreground = #f8f8f2
+format-full-underline = #44475a
+format-full-overline = #44475a
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+[module/network]
+type = internal/network
+interface = wlp2s0
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+
+; Consider an `UNKNOWN` interface state as up.
+; Some devices have an unknown state, even when they're running
+; Default: false
+unknown-as-up = true
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <ramp-signal> <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+
+; Default: %ifname% %local_ip%
+label-connected-foreground = #eefafafa
+label-connected = %{A:nm-connection-editor&:} %essid%%{A}
+
+; Default: (none)
+label-disconnected = %{A:nm-connection-editor&:}disconnected%{A}
+label-disconnected-foreground = #66ffffff
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+format-connected-background = #ffb86c
+format-connected-foreground = #2a5c45
+format-connected-underline = #ffb86c
+format-connected-overline = #ffb86c
+format-connected-padding = 2
+
+format-disconnected-background = #ffb86c
+format-disconnected-foreground = #2a5c45
+format-disconnected-underline = #ffb86c
+format-disconnected-overline = #ffb86c
+format-disconnected-padding = 2

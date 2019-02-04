@@ -16,6 +16,10 @@ Plugin 'bling/vim-airline'
 Plugin 'tpope/vim-surround'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Yggdroot/indentLine'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'Valloric/YouCompleteMe'
 
 " Start NERDTree on Vim start and focus on edit pane
 autocmd VimEnter * NERDTree
@@ -39,7 +43,7 @@ filetype plugin indent on    " required
 
 " Enable powerline in Vim and set theme to solarized
 syntax enable
-colorscheme 1989
+" colorscheme 1989
 
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
 
@@ -61,7 +65,6 @@ set shiftwidth=2
 " On pressing tab, insert 4 spaces
 set expandtab
 set number
-set colorcolumn=80
 
 " Mappings
 map ; :
@@ -85,3 +88,11 @@ nnoremap <C-H> <C-W><C-H>
 
 set splitbelow
 set splitright
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme='dracula'
+
+set listchars=eol:\ 
+
+highlight Comment cterm=italic
+let NERDTreeIgnore = ['\.pyc$']
