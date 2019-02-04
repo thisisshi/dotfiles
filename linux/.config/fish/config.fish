@@ -13,3 +13,7 @@ end
 function ls --description "better ls"
 	command ls -Glha
 end
+
+function vba $argv
+  vbam -c ~/.vbam/vbam.cfg $argv
+end
