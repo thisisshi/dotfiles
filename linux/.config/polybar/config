@@ -29,7 +29,7 @@ module-margin-right = 1
 
 modules-left = i3
 modules-center = title
-modules-right = battery network volume cpu memory clock
+modules-right = battery network volume cpu clock
 
 [module/title]
 type = internal/xwindow
@@ -181,31 +181,40 @@ poll-internval = 5
 
 time-format = %H:%M
 
-format-full-prefix = " "
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 =  
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 
+label-full = %percentage%
+label-charging = %time% %percentage%%
+label-discharging = %time% %percentage%%
+
+format-full = <ramp-capacity> <label-full>
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
 format-charging-padding = 2
-format-charging-background = #282a36
-format-charging-foreground = #f8f8f2
-format-charging-underline = #44475a
-format-charging-overline = #44475a
+format-charging-background = #cb66cc
+format-charging-foreground = #ffe3ff
+format-charging-underline = #e58de6
+format-charging-overline = #e58de6
 
 format-discharging-padding = 2
-format-discharging-background = #282a36
-format-discharging-foreground = #f8f8f2
-format-discharging-underline = #44475a
-format-discharging-overline = #44475a
+format-discharging-background = #cb66cc
+format-discharging-foreground = #ffe3ff
+format-discharging-underline = #e58de6
+format-discharging-overline = #e58de6
 
 format-full-padding = 2
-format-full-background = #282a36
-format-full-foreground = #f8f8f2
-format-full-underline = #44475a
-format-full-overline = #44475a
+format-full-background = #cb66cc
+format-full-foreground = #ffe3ff
+format-full-underline = #e58de6
+format-full-overline = #e58de6
 
 [module/wlan]
 type = internal/network
