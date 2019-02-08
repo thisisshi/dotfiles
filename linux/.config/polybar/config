@@ -190,7 +190,7 @@ animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 
-label-full = %percentage%
+label-full = %percentage%%
 label-charging = %time% %percentage%%
 label-discharging = %time% %percentage%%
 
