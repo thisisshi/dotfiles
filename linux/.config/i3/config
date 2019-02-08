@@ -15,8 +15,7 @@ exec export TERMINAL=alacritty
 new_window pixel 1
 new_float normal
 
-# Hide borders
-hide_edge_borders none
+# Hide borders hide_edge_borders none
 
 # change borders
 bindsym $mod+u border none
@@ -462,3 +461,5 @@ exec libinput-gestures-setup start
 
 # picture in picture
 bindsym $mod+c exec "i3-msg 'floating toggle; sticky toggle; resize shrink width 10000px; resize grow width 300px; resize shrink height 10000px; resize grow height 0px;move position 1550px 1040px;'"
+
+exec --no-startup-id ~/.config/polybar/launch.sh
