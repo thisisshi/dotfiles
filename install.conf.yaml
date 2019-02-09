@@ -49,7 +49,7 @@
     ~/.vbam:
       create: true
       path: linux/.config/.vbam
-    ~/.config/libinput-gesutres.conf:
+    ~/.config/libinput-gestures.conf:
       relink: true
       path: linux/.config/libinput-gestures.conf
 

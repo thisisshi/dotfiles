@@ -20,6 +20,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'nvie/vim-flake8'
+Plugin 'kalekundert/vim-coiled-snake'
 
 " Start NERDTree on Vim start and focus on edit pane
 autocmd VimEnter * NERDTree
@@ -96,3 +98,15 @@ set listchars=eol:\
 
 highlight Comment cterm=italic
 let NERDTreeIgnore = ['\.pyc$']
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_show_in_file=1  " show
+let g:flake8_show_in_gutter=1  " show
+set hlsearch
+hi Search ctermfg=black
+hi Folded ctermbg=white ctermfg=black
+hi DiffAdd ctermfg=black
+hi DiffDelete ctermfg=black
+hi DiffChange ctermfg=black
+hi Cursor ctermfg=black
+hi SpellBad ctermfg=black
+hi MatchParen cterm=bold ctermfg=black
