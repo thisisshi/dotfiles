@@ -22,6 +22,8 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'kalekundert/vim-coiled-snake'
+Plugin 'vim-scripts/SyntaxRange'
+Plugin 'tpope/vim-markdown'
 
 " Start NERDTree on Vim start and focus on edit pane
 autocmd VimEnter * NERDTree
@@ -109,4 +111,4 @@ hi DiffDelete ctermfg=black
 hi DiffChange ctermfg=black
 hi Cursor ctermfg=black
 hi SpellBad ctermfg=black
-hi MatchParen cterm=bold ctermfg=black
+hi MatchParen ctermbg=black ctermfg=white
