@@ -56,8 +56,11 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - mkdir ~/.vim/bundle
+  - git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  - mkdir ~/tmp
   - mkdir ~/dev
-    # enable sound for huawei matebook x
+  # enable sound for huawei matebook x
   - sudo ln -s ~/dev/dotfiles/linux/huawei-matebook-x/huawei-sound /usr/local/bin/huawei-sound
   - sudo ln -s ~/dev/dotfiles/linux/huawei-matebook-x/huawei-sound.service /etc/systemd/system/huawei-sound.service
   - sudo systemctl enable huawei-sound

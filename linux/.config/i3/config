@@ -65,7 +65,7 @@ bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec gksu pcmanfm
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config /home/winebaths/.config/compton/compton.conf --backend glx
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config /home/winebaths/.config/compton/compton.conf --backend glx --paint-on-overlay
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot -d 5
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
@@ -275,7 +275,8 @@ bindsym $mod+9 exec --no-startup-id betterlockscreen -l
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config /home/winebaths/.config/compton/compton.conf --backend glx
+# exec --no-startup-id nitrogen --restore; sleep 1; compton -b --config /home/winebaths/.config/compton/compton.conf --backend glx --paint-on-overlay
+exec --no-startup-id nitrogen --restore
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -288,6 +289,7 @@ exec --no-startup-id clipit
 exec --no-startup-id xautolock -time 10 -locker betterlockscren -l
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec xrandr --output DisplayPort-0 --primary
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -322,9 +324,9 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command $HOME/.config/polybar/launch.sh
+ 	i3bar_command $HOME/.config/polybar/launch.sh
   strip_workspace_numbers yes
-	status_command i3status
+ 	status_command i3status
   position bottom
   height 19
 
@@ -460,3 +462,4 @@ exec libinput-gestures-setup start
 
 # picture in picture
 bindsym $mod+c exec "i3-msg 'floating toggle; sticky toggle; resize shrink width 10000px; resize grow width 300px; resize shrink height 10000px; resize grow height 170px;move position 1770px 1210px;'"
+exec --no-startup-id compton -b --config /home/winebaths/.config/compton/compton.conf --backend glx --paint-on-overlay
