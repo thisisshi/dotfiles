@@ -65,6 +65,7 @@
           - nvim
           - koekeishiya/formulae/skhd
           - koekeishiya/formulae/yabai
+          - bat
         state: present
 
     - name: Start skhd
