@@ -190,3 +190,8 @@
         repo: ssh://git@github.com/thisisshi/cloud-custodian.git
         dest: ~/dev/thisisshi/cloud-custodian
         accept_hostkey: yes
+
+    - name: Install powerline
+      ansible.builtin.pip:
+        name: powerline
+        extra_args: --user
