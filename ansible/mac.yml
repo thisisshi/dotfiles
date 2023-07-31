@@ -1,0 +1,191 @@
+---
+  - name: "Install Essentials"
+    hosts: localhost
+    connection: local
+    tasks:
+    - name: Configure git (username)
+      community.general.git_config:
+        name: user.name
+        value: thisisshi
+        scope: global
+
+    - name: Configure git (email)
+      community.general.git_config:
+        name: user.email
+        value: theli@outlook.com
+        scope: global
+
+    - name: Configure git (editor)
+      community.general.git_config:
+        name: core.editor
+        value: vim
+        scope: global
+
+    - name: Create dev dir
+      ansible.builtin.file:
+        path: ~/dev
+        state: directory
+
+    - name: Tap Nerd Fonts
+      community.general.homebrew_tap:
+        name: homebrew/cask-fonts
+
+    - name: Brew Install
+      community.general.homebrew:
+        name:
+          - pyenv
+          - terraform
+          - asdf
+          - ack
+          - gcc
+          - cmake
+          - coreutils
+          - findutils
+          - gnu-sed
+          - jq
+          - moreutils
+          - mpv
+          - node
+          - openssl
+          - pyenv-virtualenv
+          - rust
+          - screenfetch
+          - tree
+          - vim
+          - youtube-dl
+          - make
+          - go
+          - node
+          - mas
+          - python3
+          - python
+          - fish
+          - poetry
+          - just
+          - nvim
+          - koekeishiya/formulae/skhd
+          - koekeishiya/formulae/yabai
+        state: present
+
+    - name: Start skhd
+      changed_when: false
+      shell: skhd --start-service
+
+    - name: Init pyenv
+      changed_when: false
+      shell: echo 'eval "$(pyenv init --path)"' >> ~/.zshrc
+
+    - name: Install python with pyenv
+      changed_when: false
+      shell: pyenv install -s 3.10.12
+
+    - name: Set python version
+      changed_when: false
+      shell: pyenv global 3.10.12
+
+    - name: Update path for poetry
+      changed_when: false
+      shell: echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zprofile
+
+    # There's an issue with installing casks currently
+    # https://github.com/ansible-collections/community.general/issues/864
+    # when it's resolved, should switch back to using the native homebrew
+    # plugin rather than running a shell
+    #
+    # - name: Install Casks
+    #   community.general.homebrew:
+    #     name:
+    #       - arc
+    #       - alacritty
+    #       - 1password
+    #       - dash
+    #       - virtualbox
+    #       - vagrant
+    #       - discord
+    #       - transmission
+    #       - steam
+    #       - flux
+    #       - google-chrome
+    #       - visual-studio-code
+    #       - font-hasklug-nerd-font
+    #     state: present
+
+    - name: Install Casks
+      changed_when: false
+      shell: |
+        brew install --cask \
+          arc \
+          alacritty \
+          1password \
+          dash \
+          virtualbox \
+          discord \
+          vagrant \
+          transmission \
+          steam \
+          flux \
+          google-chrome \
+          visual-studio-code \
+          font-hasklug-nerd-font
+
+    - name: Clone dotfiles
+      ansible.builtin.git:
+        repo: ssh://git@github.com/thisisshi/dotfiles.git
+        dest: ~/dev/thisisshi/dotfiles
+        accept_hostkey: yes
+
+    # you'll still need to turn off system integrity check before
+    # running as well as update the accessability settings
+    - name: Create yabairc config directory
+      ansible.builtin.file:
+        path: ~/.config/yabai
+        state: directory
+
+    - name: Copy .yabairc
+      ansible.builtin.copy:
+        src: ~/dev/thisisshi/dotfiles/mac/.yabairc
+        dest: ~/.yabairc
+
+    - name: Start yabai
+      changed_when: false
+      shell: |
+        yabai --start-service
+
+    # should probably switch to another vim package manager but can't be
+    # bothered to do so long as it still works...
+    - name: Install Vundle
+      ansible.builtin.git:
+        repo: https://github.com/VundleVim/Vundle.vim.git
+        dest: ~/.vim/bundle/Vundle.vim
+        accept_hostkey: yes
+
+    - name: Copy .vimrc
+      ansible.builtin.copy:
+        src: ~/dev/thisisshi/dotfiles/common/.vimrc
+        dest: ~/.vimrc
+
+    - name: Install Plugins
+      changed_when: false
+      shell: |
+        vim +PluginInstall +qall
+
+    - name: Create alacritty config directory
+      ansible.builtin.file:
+        path: ~/.config/alacritty
+        state: directory
+
+    - name: Copy alacritty.yml
+      ansible.builtin.copy:
+        src: ~/dev/thisisshi/dotfiles/common/alacritty.yml
+        dest: ~/.config/alacritty/alacritty.yml
+
+    - name: Copy .skhdrc
+      ansible.builtin.copy:
+        src: ~/dev/thisisshi/dotfiles/mac/.skhdrc
+        dest: ~/.config/.skhdrc
+
+    - name: Clone c7n
+      ansible.builtin.git:
+        repo: ssh://git@github.com/thisisshi/cloud-custodian.git
+        dest: ~/dev/thisisshi/cloud-custodian
+        accept_hostkey: yes
