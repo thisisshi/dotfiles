@@ -193,5 +193,5 @@
 
     - name: Install powerline
       ansible.builtin.pip:
-        name: powerline
+        name: powerline-status
         extra_args: --user
