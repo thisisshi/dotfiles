@@ -23,8 +23,14 @@
 
     - name: Create dev dir
       ansible.builtin.file:
-        path: ~/dev
+        path: ~/dev/thisisshi
         state: directory
+
+    - name: Clone dotfiles
+      ansible.builtin.git:
+        repo: ssh://git@github.com/thisisshi/dotfiles.git
+        dest: ~/dev/thisisshi/dotfiles
+        accept_hostkey: yes
 
     - name: Tap Nerd Fonts
       community.general.homebrew_tap:
@@ -67,6 +73,11 @@
           - koekeishiya/formulae/yabai
           - bat
         state: present
+
+    - name: Copy .skhdrc
+      ansible.builtin.copy:
+        src: ~/dev/thisisshi/dotfiles/mac/.skhdrc
+        dest: ~/.config/.skhdrc
 
     - name: Start skhd
       changed_when: false
@@ -129,11 +140,6 @@
           visual-studio-code \
           font-hasklug-nerd-font
 
-    - name: Clone dotfiles
-      ansible.builtin.git:
-        repo: ssh://git@github.com/thisisshi/dotfiles.git
-        dest: ~/dev/thisisshi/dotfiles
-        accept_hostkey: yes
 
     # you'll still need to turn off system integrity check before
     # running as well as update the accessability settings
@@ -180,16 +186,18 @@
         src: ~/dev/thisisshi/dotfiles/common/alacritty.yml
         dest: ~/.config/alacritty/alacritty.yml
 
-    - name: Copy .skhdrc
-      ansible.builtin.copy:
-        src: ~/dev/thisisshi/dotfiles/mac/.skhdrc
-        dest: ~/.config/.skhdrc
-
     - name: Clone c7n
       ansible.builtin.git:
         repo: ssh://git@github.com/thisisshi/cloud-custodian.git
         dest: ~/dev/thisisshi/cloud-custodian
         accept_hostkey: yes
+
+    - name: Add Upstream
+      changed_when: false
+      ignore_errors: true
+      shell: |
+        cd ~/dev/thisisshi/cloud-custodian
+        git remote add upstream ssh://git@github.com/cloud-custodian/cloud-custodian.git || exit 0
 
     - name: Install powerline
       ansible.builtin.pip:
